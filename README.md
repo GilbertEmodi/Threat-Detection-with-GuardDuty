@@ -5,7 +5,7 @@
 
 ---
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_sm42x3y4)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/ThreatDetect-architecture-complete.png?raw=true)
 
 ---
 
@@ -33,7 +33,7 @@ GuardDuty is an AI powered threat detection service, which means it is designed 
 
 
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_n1o2p3q4)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/1-CloudFront%20Complete.JPG?raw=true)
 
 ---
 
@@ -44,7 +44,7 @@ The first attack I performed on the web app is SQL injection, which means inject
 My SQL injection attack involved entering the code [' or 1=1;--] into the email field of the login page.
 This means the login query will always evaluate to "true" (i.e. our database is manipulated into telling the web app this login exists)
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_h1i2j3k4)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/3-Login%20String.JPG?raw=true)
 
 ---
 
@@ -56,7 +56,7 @@ Next, I used command injection, which manipulates the web app's web server to ru
 
 
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_t3u4v5w6)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/4-ObjectObject%20Username.JPG?raw=true)
 
 ---
 
@@ -64,7 +64,7 @@ Next, I used command injection, which manipulates the web app's web server to ru
 
 To verify the attack's success, I visited the publicly exposed credentials file. This page showed me access keys that represent my EC2 instance's access to the developer's AWS environment. Anyone can use those keys to get the same level of access.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_x7y8z9a0)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/5-Stolen%20Credentials%20JSON.JPG?raw=true)
 
 ---
 
@@ -76,7 +76,7 @@ In CloudShell, I used "wget" to download the exposed credentials file into the C
 
 I then set up a profile using all of the stolen credentials. I had to create new profile because the hacker doesn't inherently have access to the victim's AWS environment. I'll need to use the profile to switch permission settings.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_j9k0l1m2)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/6-HackComplete.JPG?raw=true)
 
 ---
 
@@ -89,7 +89,7 @@ GuardDuty's finding was called "UnauthorizedAccess:IAMUser/InstanceCredentialExf
 
 GuardDuty's detailed finding reported that an S3 bucket was affected; the action that was done using the stolen credentials was GetObject; and the EC2 instance whose credentials were leaked. The IP address & location of the actor was also available.
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_v1w2x3y4)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/7-GuardDuty%20Findings.JPG?raw=true)
 
 ---
 
@@ -102,6 +102,6 @@ To test Malware Protection, I uploaded an EICAR test file into a protected bucke
 
 Once I uploaded the malware, GuardDuty instantly triggered a finding called "Object:S3/MaliciousFile". This verified that GuardDuty could successfully detect malware. It also mentioned that the threat type is EICAR-TEST-File (which means not a virus)
 
-![Image](http://learn.nextwork.org/ecstatic_beige_calm_tarapirohe/uploads/aws-security-guardduty_sm42x3y4)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/8-GuardDuty%20Malware%20Findings.JPG?raw=true)
 
 ---
