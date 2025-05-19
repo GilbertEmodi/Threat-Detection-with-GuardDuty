@@ -5,7 +5,7 @@
 
 ---
 
-![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/ThreatDetect-architecture-complete.png?raw=true)
+![Image](https://github.com/GilbertEmodi/Threat-Detection-with-GuardDuty/blob/main/ThreatDetect-architecture-complete.png)
 
 ---
 
